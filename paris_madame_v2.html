@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080808"><title>PARIS, MADAME</title>
+<style>
+:root{--bg:#080808;--panel:#151515;--panel2:#202020;--gold:#d7b98b;--line:#40372c;--txt:#f5f0e8;--muted:#a9a39b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#211b14 0,#080808 48%);color:var(--txt);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:86px}
+header{position:sticky;top:0;z-index:5;text-align:center;padding:15px 12px 12px;background:#080808ed;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.brand{font:25px Georgia,serif;letter-spacing:2px}.tag{font:9px Arial;letter-spacing:3px;color:var(--gold);margin-top:4px}
+main{max-width:680px;margin:auto;padding:14px}.page{display:none}.page.active{display:block}
+.bottom{position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-around;background:#101010f2;border-top:1px solid var(--line);padding:8px 3px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(12px)}
+.bottom button{border:0;background:transparent;color:#aaa;padding:7px 5px;min-width:55px;font-size:11px}.bottom button.active{color:var(--gold)}.bottom .ico{font-size:20px;display:block;margin-bottom:3px}
+button{cursor:pointer;color:var(--txt);background:#26231f;border:1px solid #514536;border-radius:12px;padding:11px 13px;font-size:14px}
+button.primary{background:var(--gold);color:#17110a;border-color:var(--gold);font-weight:600}button.ghost{background:transparent}button.danger{border-color:#713c36;color:#ff9d91}
+input,textarea,select{width:100%;background:#0c0c0c;color:var(--txt);border:1px solid #4a4136;border-radius:11px;padding:12px;margin:6px 0;font:inherit}textarea{min-height:85px;resize:vertical}
+.card{background:linear-gradient(145deg,#1a1815,#111);border:1px solid var(--line);border-radius:17px;padding:15px;margin:12px 0}
+.hero{text-align:center;padding:25px 15px;background:linear-gradient(145deg,#292117,#0d0c0b);border:1px solid #665239;border-radius:18px}
+.crest{font:60px Georgia;color:var(--gold);text-shadow:0 2px 15px #b58d50}h1{font:29px Georgia;margin:5px 0 8px}h2{font:22px Georgia;font-weight:400;color:var(--gold);margin:5px 0 13px}h3{font-size:16px;margin:4px 0 8px}
+.muted,.small{color:var(--muted)}.small{font-size:12px}.row{display:flex;gap:8px;align-items:center}.row>*{min-width:0;flex:1}.between{display:flex;justify-content:space-between;align-items:center;gap:8px}.chips{display:flex;gap:7px;overflow:auto;padding:4px 0}.chip{white-space:nowrap;border-radius:30px;padding:7px 12px;background:#24211d;color:#cfc5b6;font-size:12px;border:1px solid #41372c}
+.post{overflow:hidden}.post img,.post video{width:100%;max-height:420px;object-fit:cover;border-radius:12px;background:#222}.postbody{padding:10px 2px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.actions button{padding:8px 11px}.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#d9bd91,#4a3827);color:#17110a;font:18px Georgia;flex:none}
+.fieldlabel{font-size:12px;color:var(--muted);margin-top:8px}.hidden{display:none!important}.metric{font:27px Georgia;color:var(--gold)}.listitem{padding:12px 0;border-bottom:1px solid #342e27}.listitem:last-child{border:0}.notice{padding:10px;border-radius:10px;background:#282117;color:#e4d2b4;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tile{background:#1b1916;border:1px solid var(--line);border-radius:13px;padding:13px}
+hr{border:0;border-top:1px solid var(--line);margin:13px 0}footer{text-align:center;color:#6f6960;font-size:10px;padding:25px}
+</style></head>
+<body>
+<header><div class="brand">PARIS, MADAME</div><div class="tag">L'ÉLÉGANCE EST UNE ATTITUDE</div></header>
+<main>
+<section id="home" class="page active">
+<div class="hero"><div class="crest">♛</div><h1>PARIS, MADAME</h1><div class="muted">Style · Culture · Community</div><div class="chips" style="justify-content:center;margin-top:13px"><span class="chip">PARIS</span><span class="chip">FASHION</span><span class="chip">LIFESTYLE</span></div></div>
+<div class="between" style="margin-top:18px"><h2>Лента</h2><button class="primary" onclick="go('create')">＋ Создать</button></div>
+<div class="chips"><button class="chip" onclick="filterFeed('all')">Для вас</button><button class="chip" onclick="filterFeed('following')">Подписки</button><button class="chip" onclick="filterFeed('popular')">Популярное</button></div>
+<div id="feedList"></div>
+</section>
+<section id="search" class="page"><h2>Поиск</h2><input id="searchInput" placeholder="Публикации, люди, стиль..." oninput="renderSearch()"><div class="chips"><span class="chip">#ParisStyle</span><span class="chip">#Outfit</span><span class="chip">#Vintage</span><span class="chip">#Madame</span></div><div id="searchResults"></div></section>
+<section id="create" class="page"><h2>Новая публикация</h2><div class="card"><div class="fieldlabel">Текст публикации</div><textarea id="newText" placeholder="Расскажите свою историю..."></textarea><div class="fieldlabel">Добавить фото или видео</div><input id="mediaFile" type="file" accept="image/*,video/*"><div class="small">Медиа сохраняется локально на этом устройстве. Большие файлы могут не сохраниться.</div><div class="fieldlabel">Хэштеги</div><input id="hashtags" placeholder="#ParisStyle #Fashion"><button class="primary" style="width:100%;margin-top:8px" onclick="createPost()">Опубликовать</button></div></section>
+<section id="messages" class="page"><div class="between"><h2>Сообщения</h2><button onclick="newChat()">＋ Новый чат</button></div><input id="chatSearch" placeholder="Поиск по чатам..." oninput="renderChats()"><div id="chatList"></div><div id="chatRoom" class="card hidden"><div class="between"><h3 id="chatTitle">Чат</h3><button class="ghost" onclick="closeChat()">Закрыть</button></div><div id="chatHistory"></div><input id="chatMessage" placeholder="Напишите сообщение..."><button class="primary" style="width:100%" onclick="sendChat()">Отправить</button></div></section>
+<section id="notifications" class="page"><h2>Уведомления</h2><div id="notificationList" class="card"></div></section>
+<section id="profile" class="page"><div class="hero"><div class="crest">ℙℳ</div><h1 id="profileTitle">Paris, Madame</h1><div class="muted">@paris.madame</div><div class="grid" style="margin-top:17px"><div><div class="metric" id="profilePosts">0</div><div class="small">Публикации</div></div><div><div class="metric" id="profileLikes">0</div><div class="small">Отметки «нравится»</div></div></div></div><div class="card"><h2>Редактировать профиль</h2><input id="profileName" placeholder="Имя"><textarea id="profileBio" placeholder="О себе..."></textarea><button class="primary" onclick="saveProfile()">Сохранить</button></div><div class="card"><h2>Мои публикации</h2><div id="myPosts"></div></div></section>
+<section id="studio" class="page"><div class="between"><h2>Developer Studio</h2><span class="chip">LOCAL ADMIN</span></div><div class="notice">Демо-панель владельца. Пока данные хранятся только в этом браузере и не управляют реальными пользователями.</div>
+<div class="grid"><div class="tile"><div class="metric" id="sPosts">0</div><div class="small">Публикации</div></div><div class="tile"><div class="metric" id="sLikes">0</div><div class="small">Лайки</div></div><div class="tile"><div class="metric" id="sChats">0</div><div class="small">Чаты</div></div><div class="tile"><div class="metric">0.3.0</div><div class="small">Версия демо</div></div></div>
+<div class="card"><h3>Управление контентом</h3><div id="adminPosts"></div></div>
+<div class="card"><h3>Центр обновлений</h3><input id="releaseVersion" placeholder="Новая версия, например 0.3.1"><textarea id="releaseNotes" placeholder="Список изменений"></textarea><button class="primary" onclick="addRelease()">Записать обновление</button><div id="releaseList"></div><hr><button onclick="exportBackup()">Экспортировать резервную копию</button> <button class="danger" onclick="resetDemo()">Сбросить демо-данные</button></div>
+<div class="card"><h3>Настройки приложения</h3><label class="fieldlabel">Название сообщества</label><input id="communityName" value="PARIS, MADAME"><label class="fieldlabel">Приветственное сообщение</label><textarea id="welcomeText">Добро пожаловать в PARIS, MADAME.</textarea><button onclick="saveSettings()">Сохранить настройки</button></div>
+<div class="card"><h3>Что нужно для настоящего запуска</h3><p class="small">Сервер и база данных · Регистрация и вход · Защищённые роли администратора · Облачное хранение медиа · Модерация и жалобы · Публикация обновлений на сайте и в магазинах приложений.</p></div>
+</section>
+<section id="settings" class="page"><h2>Настройки</h2><div class="card"><div class="listitem">Аккаунт и приватность</div><div class="listitem">Уведомления <span class="small">Демо</span></div><div class="listitem">Язык <span class="small">Русский</span></div><div class="listitem">Тема <span class="small">Premium dark</span></div><div class="listitem">О приложении <span class="small">PARIS, MADAME · 0.3.0 demo</span></div></div></section>
+</main>
+<nav class="bottom">
+<button class="active" data-page="home" onclick="go('home')"><span class="ico">⌂</span>Главная</button>
+<button data-page="search" onclick="go('search')"><span class="ico">⌕</span>Поиск</button>
+<button data-page="create" onclick="go('create')"><span class="ico">＋</span>Создать</button>
+<button data-page="messages" onclick="go('messages')"><span class="ico">▤</span>Чаты</button>
+<button data-page="profile" onclick="go('profile')"><span class="ico">♙</span>Профиль</button>
+</nav>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem('pm3_'+k))??d}catch(e){return d}};
+const write=(k,v)=>{try{localStorage.setItem('pm3_'+k,JSON.stringify(v));return true}catch(e){alert('Не удалось сохранить. Возможно, переполнено хранилище браузера. Попробуйте файл меньшего размера.');return false}};
+let posts=read('posts',[
+{id:1,user:'Sophie Martin',text:'Un dimanche à Paris. ☕️ #ParisStyle #Lifestyle',media:'',likes:12,comments:['Очень красиво!'],mine:false},
+{id:2,user:'Lucas Bernard',text:'Simple details. Timeless mood. #Menswear',media:'',likes:8,comments:[],mine:false},
+{id:3,user:'Paris, Madame',text:'Добро пожаловать в наше сообщество. Делитесь стилем и вдохновением. ♛',media:'',likes:21,comments:[],mine:true}
+]);
+let chats=read('chats',[{name:'Sophie Martin',messages:['Привет! Как дела?','Увидимся завтра в Париже?']},{name:'Fashion Community',messages:['Добро пожаловать в сообщество!']}]);
+let releases=read('releases',[]), notifications=read('notifications',['Добро пожаловать в PARIS, MADAME!','Твоя демо-лента уже готова.']), currentChat=-1, feedMode='all';
+function persist(){write('posts',posts);write('chats',chats);write('releases',releases);write('notifications',notifications)}
+window.go=function(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.bottom button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id==='messages')renderChats();if(id==='profile')renderProfile();if(id==='studio')renderStudio();if(id==='notifications')renderNotifications();if(id==='search')renderSearch();window.scrollTo(0,0)};
+window.filterFeed=function(mode){feedMode=mode;renderFeed()};
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function mediaHTML(m){if(!m)return '';if(m.type==='image')return '<img src="'+m.data+'" alt="Publication media">';if(m.type==='video')return '<video controls playsinline src="'+m.data+'"></video>';return ''}
+function renderFeed(){let list=posts.slice();if(feedMode==='popular')list.sort((a,b)=>b.likes-a.likes);$('feedList').innerHTML=list.map(p=>'<article class="card post"><div class="row"><div class="avatar">'+esc(p.user.slice(0,1))+'</div><div><b>'+esc(p.user)+'</b><div class="small">Paris · недавно</div></div></div>'+mediaHTML(p.media)+'<div class="postbody">'+esc(p.text).replace(/\n/g,'<br>')+'</div><div class="actions"><button onclick="likePost('+p.id+')">♡ '+p.likes+'</button><button onclick="commentPost('+p.id+')">Комментарии ('+p.comments.length+')</button><button onclick="sharePost('+p.id+')">Поделиться</button></div>'+(p.comments.length?'<div class="small" style="margin-top:8px">'+p.comments.slice(-2).map(esc).join('<br>')+'</div>':'')+'</article>').join('')||'<div class="card">Пока нет публикаций.</div>'}
+window.likePost=id=>{let p=posts.find(x=>x.id===id);if(p){p.likes++;persist();renderFeed();renderStudio()}};
+window.commentPost=id=>{let t=prompt('Ваш комментарий:');if(t&&t.trim()){posts.find(x=>x.id===id).comments.push(t.trim());persist();renderFeed()}};
+window.sharePost=id=>{let p=posts.find(x=>x.id===id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(p.text).then(()=>alert('Текст публикации скопирован.')).catch(()=>alert(p.text))}else alert(p.text)};
+window.createPost=async function(){let text=$('newText').value.trim(),file=$('mediaFile').files[0];if(!text&&!file){alert('Добавьте текст или медиафайл.');return}let media='';if(file){if(file.size>2*1024*1024){alert('Для этой демо-версии выберите файл до 2 МБ.');return}media={type:file.type.startsWith('video')?'video':'image',data:await new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}}posts.unshift({id:Date.now(),user:localStorage.getItem('pm3_name')||'Paris, Madame',text:text+' '+$('hashtags').value,media,likes:0,comments:[],mine:true});persist();$('newText').value='';$('hashtags').value='';$('mediaFile').value='';renderFeed();alert('Публикация добавлена в локальную ленту.');go('home')};
+window.renderSearch=function(){let q=($('searchInput').value||'').toLowerCase();$('searchResults').innerHTML=posts.filter(p=>(p.text+' '+p.user).toLowerCase().includes(q)).map(p=>'<div class="card"><b>'+esc(p.user)+'</b><p>'+esc(p.text)+'</p><span class="small">♡ '+p.likes+'</span></div>').join('')||'<p class="muted">Ничего не найдено.</p>'};
+window.renderChats=function(){let q=($('chatSearch').value||'').toLowerCase();$('chatList').innerHTML=chats.map((c,i)=>({c,i})).filter(x=>x.c.name.toLowerCase().includes(q)).map(x=>'<div class="card row" onclick="openChat('+x.i+')" style="cursor:pointer"><div class="avatar">'+esc(x.c.name[0])+'</div><div><b>'+esc(x.c.name)+'</b><div class="small">'+esc(x.c.messages.slice(-1)[0]||'Нет сообщений')+'</div></div></div>').join('')}
+window.openChat=i=>{currentChat=i;$('chatRoom').classList.remove('hidden');$('chatTitle').textContent=chats[i].name;renderChatHistory()};
+function renderChatHistory(){$('chatHistory').innerHTML=chats[currentChat].messages.map(m=>'<div class="listitem">'+esc(m)+'</div>').join('')}
+window.closeChat=()=>{$('chatRoom').classList.add('hidden');currentChat=-1};
+window.sendChat=()=>{let t=$('chatMessage').value.trim();if(!t||currentChat<0)return;chats[currentChat].messages.push(t);$('chatMessage').value='';persist();renderChatHistory();renderChats()};
+window.newChat=()=>{let n=prompt('Имя нового демо-чата:');if(n&&n.trim()){chats.push({name:n.trim(),messages:[]});persist();renderChats()}};
+window.saveProfile=()=>{let n=$('profileName').value.trim()||'Paris, Madame';localStorage.setItem('pm3_name',n);localStorage.setItem('pm3_bio',$('profileBio').value);renderProfile();alert('Профиль сохранён на этом устройстве.')};
+function renderProfile(){let n=localStorage.getItem('pm3_name')||'Paris, Madame';$('profileTitle').textContent=n;$('profileName').value=n;$('profileBio').value=localStorage.getItem('pm3_bio')||'';$('profilePosts').textContent=posts.filter(p=>p.mine).length;$('profileLikes').textContent=posts.filter(p=>p.mine).reduce((s,p)=>s+p.likes,0);$('myPosts').innerHTML=posts.filter(p=>p.mine).map(p=>'<div class="listitem">'+esc(p.text)+' <button class="danger" onclick="deletePost('+p.id+')">Удалить</button></div>').join('')||'<span class="small">У вас пока нет публикаций.</span>'}
+window.deletePost=id=>{if(confirm('Удалить публикацию?')){posts=posts.filter(p=>p.id!==id);persist();renderProfile();renderFeed();renderStudio()}};
+function renderNotifications(){$('notificationList').innerHTML=notifications.map(n=>'<div class="listitem">'+esc(n)+'</div>').join('')}
+function renderStudio(){$('sPosts').textContent=posts.length;$('sLikes').textContent=posts.reduce((s,p)=>s+p.likes,0);$('sChats').textContent=chats.length;$('adminPosts').innerHTML=posts.map(p=>'<div class="listitem"><b>'+esc(p.user)+'</b><div class="small">'+esc(p.text)+'</div><button class="danger" onclick="adminDelete('+p.id+')">Удалить публикацию</button></div>').join('');$('releaseList').innerHTML=releases.map(r=>'<div class="listitem"><b>'+esc(r.v)+'</b><div class="small">'+esc(r.n)+'</div></div>').join('')}
+window.adminDelete=id=>{if(confirm('Удалить эту публикацию из локальной демо-ленты?')){posts=posts.filter(p=>p.id!==id);persist();renderStudio();renderFeed()}};
+window.addRelease=()=>{let v=$('releaseVersion').value.trim(),n=$('releaseNotes').value.trim();if(!v){alert('Укажите номер версии.');return}releases.unshift({v,n});notifications.unshift('Добавлена запись об обновлении '+v);persist();$('releaseVersion').value='';$('releaseNotes').value='';renderStudio();alert('Запись об обновлении сохранена локально. Само приложение эта кнопка не обновляет.')};
+window.saveSettings=()=>{localStorage.setItem('pm3_community',$('communityName').value);localStorage.setItem('pm3_welcome',$('welcomeText').value);alert('Настройки сохранены локально.')};
+window.exportBackup=()=>{let data={posts,chats,releases,notifications,profile:{name:localStorage.getItem('pm3_name'),bio:localStorage.getItem('pm3_bio')}};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='paris-madame-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+window.resetDemo=()=>{if(confirm('Удалить локальные данные демо-приложения?')){Object.keys(localStorage).filter(k=>k.startsWith('pm3_')).forEach(k=>localStorage.removeItem(k));location.reload()}};
+renderFeed();renderChats();renderProfile();renderNotifications();renderStudio();
+})();
+</script></body></html>
