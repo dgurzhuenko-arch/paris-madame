@@ -1,47 +1,62 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080808"><title>PARIS, MADAME</title>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090909"><title>PARIS, MADAME</title>
 <style>
-:root{--bg:#080808;--panel:#151515;--panel2:#202020;--gold:#d7b98b;--line:#40372c;--txt:#f5f0e8;--muted:#a9a39b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#211b14 0,#080808 48%);color:var(--txt);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:86px}
-header{position:sticky;top:0;z-index:5;text-align:center;padding:15px 12px 12px;background:#080808ed;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-.brand{font:25px Georgia,serif;letter-spacing:2px}.tag{font:9px Arial;letter-spacing:3px;color:var(--gold);margin-top:4px}
+:root{--bg:#090909;--panel:#141311;--panel2:#1d1a16;--gold:#c9a875;--gold2:#ead6b5;--line:#393128;--text:#f4efe7;--muted:#9b9489;--red:#a65d52}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#342719 0,#15110d 27%,var(--bg) 62%);color:var(--text);font:15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:88px}
+header{position:sticky;top:0;z-index:8;text-align:center;padding:15px 12px 13px;background:#090909eF;border-bottom:1px solid #403629;backdrop-filter:blur(16px)}
+.brand{font:25px Georgia,serif;letter-spacing:3px}.tag{font:9px Arial;letter-spacing:3px;color:var(--gold);margin-top:5px}
 main{max-width:680px;margin:auto;padding:14px}.page{display:none}.page.active{display:block}
-.bottom{position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-around;background:#101010f2;border-top:1px solid var(--line);padding:8px 3px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(12px)}
-.bottom button{border:0;background:transparent;color:#aaa;padding:7px 5px;min-width:55px;font-size:11px}.bottom button.active{color:var(--gold)}.bottom .ico{font-size:20px;display:block;margin-bottom:3px}
-button{cursor:pointer;color:var(--txt);background:#26231f;border:1px solid #514536;border-radius:12px;padding:11px 13px;font-size:14px}
-button.primary{background:var(--gold);color:#17110a;border-color:var(--gold);font-weight:600}button.ghost{background:transparent}button.danger{border-color:#713c36;color:#ff9d91}
-input,textarea,select{width:100%;background:#0c0c0c;color:var(--txt);border:1px solid #4a4136;border-radius:11px;padding:12px;margin:6px 0;font:inherit}textarea{min-height:85px;resize:vertical}
-.card{background:linear-gradient(145deg,#1a1815,#111);border:1px solid var(--line);border-radius:17px;padding:15px;margin:12px 0}
-.hero{text-align:center;padding:25px 15px;background:linear-gradient(145deg,#292117,#0d0c0b);border:1px solid #665239;border-radius:18px}
-.crest{font:60px Georgia;color:var(--gold);text-shadow:0 2px 15px #b58d50}h1{font:29px Georgia;margin:5px 0 8px}h2{font:22px Georgia;font-weight:400;color:var(--gold);margin:5px 0 13px}h3{font-size:16px;margin:4px 0 8px}
-.muted,.small{color:var(--muted)}.small{font-size:12px}.row{display:flex;gap:8px;align-items:center}.row>*{min-width:0;flex:1}.between{display:flex;justify-content:space-between;align-items:center;gap:8px}.chips{display:flex;gap:7px;overflow:auto;padding:4px 0}.chip{white-space:nowrap;border-radius:30px;padding:7px 12px;background:#24211d;color:#cfc5b6;font-size:12px;border:1px solid #41372c}
-.post{overflow:hidden}.post img,.post video{width:100%;max-height:420px;object-fit:cover;border-radius:12px;background:#222}.postbody{padding:10px 2px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.actions button{padding:8px 11px}.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#d9bd91,#4a3827);color:#17110a;font:18px Georgia;flex:none}
-.fieldlabel{font-size:12px;color:var(--muted);margin-top:8px}.hidden{display:none!important}.metric{font:27px Georgia;color:var(--gold)}.listitem{padding:12px 0;border-bottom:1px solid #342e27}.listitem:last-child{border:0}.notice{padding:10px;border-radius:10px;background:#282117;color:#e4d2b4;font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tile{background:#1b1916;border:1px solid var(--line);border-radius:13px;padding:13px}
-hr{border:0;border-top:1px solid var(--line);margin:13px 0}footer{text-align:center;color:#6f6960;font-size:10px;padding:25px}
+h1,h2,h3,p{margin-top:0}h1{font:30px Georgia,serif;margin-bottom:8px}h2{font:24px Georgia,serif;font-weight:400;color:var(--gold2);margin:8px 0 16px}h3{font-size:15px;margin:0 0 6px}
+.muted,.small{color:var(--muted)}.small{font-size:12px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase}
+.card{background:linear-gradient(145deg,#1b1915,#11100e);border:1px solid var(--line);border-radius:17px;padding:15px;margin:12px 0;box-shadow:0 10px 30px #0003}
+.hero{text-align:center;padding:25px 16px;background:linear-gradient(145deg,#302416,#14110e 75%);border:1px solid #665239;border-radius:19px;margin-bottom:18px}
+.crest{font:53px Georgia;color:var(--gold);text-shadow:0 0 24px #bd925455}.hero .sub{font:12px Georgia;color:#d7c4a4;letter-spacing:1px}
+button,input,textarea,select{font:inherit}button{cursor:pointer;color:var(--text);background:#26221c;border:1px solid #554735;border-radius:12px;padding:11px 13px}button.primary{background:linear-gradient(135deg,#e0c69b,#b58d59);color:#17110b;border:0;font-weight:650}button.ghost{background:transparent}button.danger{border-color:#75443c;color:#e5a096}
+input,textarea,select{width:100%;background:#0d0c0b;color:var(--text);border:1px solid #4a4032;border-radius:11px;padding:12px;margin:6px 0}textarea{min-height:100px;resize:vertical}
+.row{display:flex;align-items:center;gap:10px}.row>*{min-width:0}.between{display:flex;align-items:center;justify-content:space-between;gap:10px}.grow{flex:1}.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;flex:none;background:linear-gradient(145deg,#e0c69b,#715437);color:#19130c;font:20px Georgia;border:1px solid #d4b98c}
+.bottom{position:fixed;z-index:10;bottom:0;left:0;right:0;display:flex;justify-content:space-around;background:#100f0df2;border-top:1px solid #44392b;padding:7px 2px calc(7px + env(safe-area-inset-bottom));backdrop-filter:blur(18px)}
+.bottom button{border:0;background:transparent;color:#958d82;min-width:58px;padding:7px 4px;font-size:10px}.bottom button.active{color:var(--gold2)}.ico{display:block;font-size:20px;margin-bottom:3px}
+.pill{display:inline-block;border:1px solid #5c4b34;color:#d8c29e;border-radius:30px;padding:5px 10px;font-size:11px}.feedtabs{display:flex;gap:8px;overflow:auto;margin:12px 0}.feedtabs button{white-space:nowrap;padding:8px 12px;font-size:12px}.feedtabs button.active{background:#3a2d1d;color:#ead6b5}
+.post{overflow:hidden}.posthead{display:flex;align-items:center;gap:10px;margin-bottom:12px}.postmedia{width:100%;max-height:460px;object-fit:cover;border-radius:12px;background:#222}.posttext{white-space:pre-wrap;line-height:1.5;margin:12px 0}.postactions{display:flex;gap:8px;flex-wrap:wrap}.postactions button{font-size:12px;padding:8px 11px}.line{border:0;border-top:1px solid #342d24;margin:13px 0}
+.result,.friend,.chatrow{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #342d24}.result:last-child,.friend:last-child,.chatrow:last-child{border:0}.handle{color:var(--muted);font-size:12px}.status{width:7px;height:7px;border-radius:50%;background:#8b9b72;display:inline-block;margin-right:5px}
+.chatbox{height:48vh;min-height:250px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:10px;background:#0c0b0a;border-radius:12px;margin:10px 0}.bubble{max-width:82%;padding:10px 12px;border-radius:14px;background:#28231c;align-self:flex-start;line-height:1.4}.bubble.me{align-self:flex-end;background:#57452d;color:#fff3df}.composer{display:flex;gap:7px}.composer input{margin:0}.composer button{flex:none}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{padding:12px;background:#1b1814;border:1px solid var(--line);border-radius:13px;text-align:center}.stat strong{display:block;font:24px Georgia;color:var(--gold2)}
+.label{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-top:9px}.empty{text-align:center;padding:28px 12px;color:var(--muted)}.notice{font-size:12px;line-height:1.5;color:#c6b99f;background:#282116;border:1px solid #51412c;padding:12px;border-radius:12px}
+.hidden{display:none!important}.full{width:100%}.profilecover{text-align:center;padding:24px;background:linear-gradient(145deg,#2d2419,#12100e);border:1px solid #5a4932;border-radius:18px}
+@media(min-width:600px){.bottom{max-width:680px;left:50%;transform:translateX(-50%);border:1px solid #44392b;border-bottom:0;border-radius:18px 18px 0 0}}
 </style></head>
 <body>
 <header><div class="brand">PARIS, MADAME</div><div class="tag">L'ÉLÉGANCE EST UNE ATTITUDE</div></header>
 <main>
 <section id="home" class="page active">
-<div class="hero"><div class="crest">♛</div><h1>PARIS, MADAME</h1><div class="muted">Style · Culture · Community</div><div class="chips" style="justify-content:center;margin-top:13px"><span class="chip">PARIS</span><span class="chip">FASHION</span><span class="chip">LIFESTYLE</span></div></div>
-<div class="between" style="margin-top:18px"><h2>Лента</h2><button class="primary" onclick="go('create')">＋ Создать</button></div>
-<div class="chips"><button class="chip" onclick="filterFeed('all')">Для вас</button><button class="chip" onclick="filterFeed('following')">Подписки</button><button class="chip" onclick="filterFeed('popular')">Популярное</button></div>
-<div id="feedList"></div>
+ <div class="hero"><div class="crest">♛</div><div class="eyebrow">Bienvenue dans votre cercle</div><h1>PARIS, MADAME</h1><div class="sub">STYLE · CULTURE · CONVERSATIONS</div></div>
+ <div class="between"><h2>Le fil — Лента</h2><button class="primary" onclick="go('create')">＋ Пост</button></div>
+ <div class="feedtabs"><button class="active" onclick="setFeed('all',this)">Для вас</button><button onclick="setFeed('friends',this)">Друзья</button><button onclick="setFeed('popular',this)">Популярное</button></div>
+ <div id="feed"></div>
 </section>
-<section id="search" class="page"><h2>Поиск</h2><input id="searchInput" placeholder="Публикации, люди, стиль..." oninput="renderSearch()"><div class="chips"><span class="chip">#ParisStyle</span><span class="chip">#Outfit</span><span class="chip">#Vintage</span><span class="chip">#Madame</span></div><div id="searchResults"></div></section>
-<section id="create" class="page"><h2>Новая публикация</h2><div class="card"><div class="fieldlabel">Текст публикации</div><textarea id="newText" placeholder="Расскажите свою историю..."></textarea><div class="fieldlabel">Добавить фото или видео</div><input id="mediaFile" type="file" accept="image/*,video/*"><div class="small">Медиа сохраняется локально на этом устройстве. Большие файлы могут не сохраниться.</div><div class="fieldlabel">Хэштеги</div><input id="hashtags" placeholder="#ParisStyle #Fashion"><button class="primary" style="width:100%;margin-top:8px" onclick="createPost()">Опубликовать</button></div></section>
-<section id="messages" class="page"><div class="between"><h2>Сообщения</h2><button onclick="newChat()">＋ Новый чат</button></div><input id="chatSearch" placeholder="Поиск по чатам..." oninput="renderChats()"><div id="chatList"></div><div id="chatRoom" class="card hidden"><div class="between"><h3 id="chatTitle">Чат</h3><button class="ghost" onclick="closeChat()">Закрыть</button></div><div id="chatHistory"></div><input id="chatMessage" placeholder="Напишите сообщение..."><button class="primary" style="width:100%" onclick="sendChat()">Отправить</button></div></section>
-<section id="notifications" class="page"><h2>Уведомления</h2><div id="notificationList" class="card"></div></section>
-<section id="profile" class="page"><div class="hero"><div class="crest">ℙℳ</div><h1 id="profileTitle">Paris, Madame</h1><div class="muted">@paris.madame</div><div class="grid" style="margin-top:17px"><div><div class="metric" id="profilePosts">0</div><div class="small">Публикации</div></div><div><div class="metric" id="profileLikes">0</div><div class="small">Отметки «нравится»</div></div></div></div><div class="card"><h2>Редактировать профиль</h2><input id="profileName" placeholder="Имя"><textarea id="profileBio" placeholder="О себе..."></textarea><button class="primary" onclick="saveProfile()">Сохранить</button></div><div class="card"><h2>Мои публикации</h2><div id="myPosts"></div></div></section>
-<section id="studio" class="page"><div class="between"><h2>Developer Studio</h2><span class="chip">LOCAL ADMIN</span></div><div class="notice">Демо-панель владельца. Пока данные хранятся только в этом браузере и не управляют реальными пользователями.</div>
-<div class="grid"><div class="tile"><div class="metric" id="sPosts">0</div><div class="small">Публикации</div></div><div class="tile"><div class="metric" id="sLikes">0</div><div class="small">Лайки</div></div><div class="tile"><div class="metric" id="sChats">0</div><div class="small">Чаты</div></div><div class="tile"><div class="metric">0.3.0</div><div class="small">Версия демо</div></div></div>
-<div class="card"><h3>Управление контентом</h3><div id="adminPosts"></div></div>
-<div class="card"><h3>Центр обновлений</h3><input id="releaseVersion" placeholder="Новая версия, например 0.3.1"><textarea id="releaseNotes" placeholder="Список изменений"></textarea><button class="primary" onclick="addRelease()">Записать обновление</button><div id="releaseList"></div><hr><button onclick="exportBackup()">Экспортировать резервную копию</button> <button class="danger" onclick="resetDemo()">Сбросить демо-данные</button></div>
-<div class="card"><h3>Настройки приложения</h3><label class="fieldlabel">Название сообщества</label><input id="communityName" value="PARIS, MADAME"><label class="fieldlabel">Приветственное сообщение</label><textarea id="welcomeText">Добро пожаловать в PARIS, MADAME.</textarea><button onclick="saveSettings()">Сохранить настройки</button></div>
-<div class="card"><h3>Что нужно для настоящего запуска</h3><p class="small">Сервер и база данных · Регистрация и вход · Защищённые роли администратора · Облачное хранение медиа · Модерация и жалобы · Публикация обновлений на сайте и в магазинах приложений.</p></div>
+<section id="search" class="page">
+ <div class="eyebrow">Discover your circle</div><h2>Найти людей</h2><input id="userSearch" placeholder="Введите имя или @никнейм" oninput="renderPeople()"><div class="small">Ищите людей по нику и добавляйте их в друзья.</div>
+ <div class="card"><div class="between"><h3>Люди сообщества</h3><span class="pill" id="friendCount">0 друзей</span></div><div id="people"></div></div>
 </section>
-<section id="settings" class="page"><h2>Настройки</h2><div class="card"><div class="listitem">Аккаунт и приватность</div><div class="listitem">Уведомления <span class="small">Демо</span></div><div class="listitem">Язык <span class="small">Русский</span></div><div class="listitem">Тема <span class="small">Premium dark</span></div><div class="listitem">О приложении <span class="small">PARIS, MADAME · 0.3.0 demo</span></div></div></section>
+<section id="create" class="page">
+ <div class="eyebrow">Share your moment</div><h2>Новая публикация</h2>
+ <div class="card"><div class="label">ТЕКСТ / ПОДПИСЬ</div><textarea id="postText" placeholder="Что вдохновляет вас сегодня?"></textarea><div class="label">ФОТО ИЛИ ВИДЕО</div><input id="postFile" type="file" accept="image/*,video/*"><div id="fileHint" class="small">Можно опубликовать только текст или добавить медиа до 2 МБ в этой демо-версии.</div><div class="label">МЕТКИ</div><input id="postTags" placeholder="#ParisStyle #DailyMood"><button class="primary full" onclick="publish()">Опубликовать в ленте</button></div>
+</section>
+<section id="messages" class="page">
+ <div class="eyebrow">Private conversations</div><h2>Сообщения</h2><div id="chatList" class="card"></div>
+ <div id="chatPanel" class="card hidden"><div class="between"><div class="row"><div class="avatar" id="chatAvatar">S</div><div><b id="chatName">Чат</b><div class="small"><span class="status"></span>Ваш личный диалог</div></div></div><button class="ghost" onclick="closeChat()">Назад</button></div><div id="chatHistory" class="chatbox"></div><div class="composer"><input id="messageInput" placeholder="Написать сообщение…" onkeydown="if(event.key==='Enter')sendMessage()"><button class="primary" onclick="sendMessage()">➤</button></div></div>
+ <div class="notice">В этой версии чаты демонстрационные и сохраняются на этом устройстве. Для переписки между разными людьми подключим сервер и авторизацию.</div>
+</section>
+<section id="profile" class="page">
+ <div class="eyebrow">Your identity</div><h2>Профиль</h2>
+ <div class="profilecover"><div class="crest">ℙℳ</div><h1 id="profileDisplay">Madame</h1><div id="handleDisplay" class="muted">@madame</div><p id="bioDisplay" class="small">Ваше пространство, ваш стиль.</p><div class="grid"><div class="stat"><strong id="myPostCount">0</strong><span class="small">Публикации</span></div><div class="stat"><strong id="myFriendCount">0</strong><span class="small">Друзья</span></div></div></div>
+ <div class="card"><h3>Редактор профиля</h3><div class="label">ИМЯ</div><input id="editName" placeholder="Ваше имя"><div class="label">УНИКАЛЬНЫЙ НИКНЕЙМ</div><input id="editHandle" placeholder="например madame.paris"><div class="label">О СЕБЕ</div><textarea id="editBio" placeholder="Несколько слов о себе…"></textarea><button class="primary full" onclick="saveProfile()">Сохранить профиль</button></div>
+ <div class="card"><h3>Настройки</h3><div class="result"><span class="grow">Приватный профиль</span><input id="privateMode" type="checkbox" style="width:22px" onchange="savePrefs()"></div><div class="result"><span class="grow">Уведомления</span><input id="notifyMode" type="checkbox" checked style="width:22px" onchange="savePrefs()"></div><button class="full" onclick="exportData()">Экспортировать мои данные</button></div>
+ <div class="card"><h3>Друзья</h3><div id="myFriends"></div></div>
+</section>
 </main>
 <nav class="bottom">
 <button class="active" data-page="home" onclick="go('home')"><span class="ico">⌂</span>Главная</button>
@@ -51,45 +66,45 @@ hr{border:0;border-top:1px solid var(--line);margin:13px 0}footer{text-align:cen
 <button data-page="profile" onclick="go('profile')"><span class="ico">♙</span>Профиль</button>
 </nav>
 <script>
-(function(){
-'use strict';
-const $=id=>document.getElementById(id);
-const read=(k,d)=>{try{return JSON.parse(localStorage.getItem('pm3_'+k))??d}catch(e){return d}};
-const write=(k,v)=>{try{localStorage.setItem('pm3_'+k,JSON.stringify(v));return true}catch(e){alert('Не удалось сохранить. Возможно, переполнено хранилище браузера. Попробуйте файл меньшего размера.');return false}};
-let posts=read('posts',[
-{id:1,user:'Sophie Martin',text:'Un dimanche à Paris. ☕️ #ParisStyle #Lifestyle',media:'',likes:12,comments:['Очень красиво!'],mine:false},
-{id:2,user:'Lucas Bernard',text:'Simple details. Timeless mood. #Menswear',media:'',likes:8,comments:[],mine:false},
-{id:3,user:'Paris, Madame',text:'Добро пожаловать в наше сообщество. Делитесь стилем и вдохновением. ♛',media:'',likes:21,comments:[],mine:true}
+(()=>{'use strict';
+const $=id=>document.getElementById(id), K='pm_next_';
+const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(K+k))??d}catch(e){return d}}, save=(k,v)=>{try{localStorage.setItem(K+k,JSON.stringify(v));return true}catch(e){alert('Не удалось сохранить: возможно, закончилось место. Выберите файл меньшего размера.');return false}};
+const people=read('people',[
+{id:'sophie',name:'Sophie Martin',handle:'sophie.martin',bio:'Paris mornings, vintage finds.',avatar:'S'},
+{id:'lucas',name:'Lucas Bernard',handle:'lucas.b',bio:'Architecture & timeless menswear.',avatar:'L'},
+{id:'camille',name:'Camille Laurent',handle:'camille.laurent',bio:'Art, cafés and little moments.',avatar:'C'},
+{id:'antoine',name:'Antoine Moreau',handle:'antoine.m',bio:'Photographer in Paris.',avatar:'A'}
 ]);
-let chats=read('chats',[{name:'Sophie Martin',messages:['Привет! Как дела?','Увидимся завтра в Париже?']},{name:'Fashion Community',messages:['Добро пожаловать в сообщество!']}]);
-let releases=read('releases',[]), notifications=read('notifications',['Добро пожаловать в PARIS, MADAME!','Твоя демо-лента уже готова.']), currentChat=-1, feedMode='all';
-function persist(){write('posts',posts);write('chats',chats);write('releases',releases);write('notifications',notifications)}
-window.go=function(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.bottom button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id==='messages')renderChats();if(id==='profile')renderProfile();if(id==='studio')renderStudio();if(id==='notifications')renderNotifications();if(id==='search')renderSearch();window.scrollTo(0,0)};
-window.filterFeed=function(mode){feedMode=mode;renderFeed()};
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function mediaHTML(m){if(!m)return '';if(m.type==='image')return '<img src="'+m.data+'" alt="Publication media">';if(m.type==='video')return '<video controls playsinline src="'+m.data+'"></video>';return ''}
-function renderFeed(){let list=posts.slice();if(feedMode==='popular')list.sort((a,b)=>b.likes-a.likes);$('feedList').innerHTML=list.map(p=>'<article class="card post"><div class="row"><div class="avatar">'+esc(p.user.slice(0,1))+'</div><div><b>'+esc(p.user)+'</b><div class="small">Paris · недавно</div></div></div>'+mediaHTML(p.media)+'<div class="postbody">'+esc(p.text).replace(/\n/g,'<br>')+'</div><div class="actions"><button onclick="likePost('+p.id+')">♡ '+p.likes+'</button><button onclick="commentPost('+p.id+')">Комментарии ('+p.comments.length+')</button><button onclick="sharePost('+p.id+')">Поделиться</button></div>'+(p.comments.length?'<div class="small" style="margin-top:8px">'+p.comments.slice(-2).map(esc).join('<br>')+'</div>':'')+'</article>').join('')||'<div class="card">Пока нет публикаций.</div>'}
-window.likePost=id=>{let p=posts.find(x=>x.id===id);if(p){p.likes++;persist();renderFeed();renderStudio()}};
-window.commentPost=id=>{let t=prompt('Ваш комментарий:');if(t&&t.trim()){posts.find(x=>x.id===id).comments.push(t.trim());persist();renderFeed()}};
-window.sharePost=id=>{let p=posts.find(x=>x.id===id);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(p.text).then(()=>alert('Текст публикации скопирован.')).catch(()=>alert(p.text))}else alert(p.text)};
-window.createPost=async function(){let text=$('newText').value.trim(),file=$('mediaFile').files[0];if(!text&&!file){alert('Добавьте текст или медиафайл.');return}let media='';if(file){if(file.size>2*1024*1024){alert('Для этой демо-версии выберите файл до 2 МБ.');return}media={type:file.type.startsWith('video')?'video':'image',data:await new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}}posts.unshift({id:Date.now(),user:localStorage.getItem('pm3_name')||'Paris, Madame',text:text+' '+$('hashtags').value,media,likes:0,comments:[],mine:true});persist();$('newText').value='';$('hashtags').value='';$('mediaFile').value='';renderFeed();alert('Публикация добавлена в локальную ленту.');go('home')};
-window.renderSearch=function(){let q=($('searchInput').value||'').toLowerCase();$('searchResults').innerHTML=posts.filter(p=>(p.text+' '+p.user).toLowerCase().includes(q)).map(p=>'<div class="card"><b>'+esc(p.user)+'</b><p>'+esc(p.text)+'</p><span class="small">♡ '+p.likes+'</span></div>').join('')||'<p class="muted">Ничего не найдено.</p>'};
-window.renderChats=function(){let q=($('chatSearch').value||'').toLowerCase();$('chatList').innerHTML=chats.map((c,i)=>({c,i})).filter(x=>x.c.name.toLowerCase().includes(q)).map(x=>'<div class="card row" onclick="openChat('+x.i+')" style="cursor:pointer"><div class="avatar">'+esc(x.c.name[0])+'</div><div><b>'+esc(x.c.name)+'</b><div class="small">'+esc(x.c.messages.slice(-1)[0]||'Нет сообщений')+'</div></div></div>').join('')}
-window.openChat=i=>{currentChat=i;$('chatRoom').classList.remove('hidden');$('chatTitle').textContent=chats[i].name;renderChatHistory()};
-function renderChatHistory(){$('chatHistory').innerHTML=chats[currentChat].messages.map(m=>'<div class="listitem">'+esc(m)+'</div>').join('')}
-window.closeChat=()=>{$('chatRoom').classList.add('hidden');currentChat=-1};
-window.sendChat=()=>{let t=$('chatMessage').value.trim();if(!t||currentChat<0)return;chats[currentChat].messages.push(t);$('chatMessage').value='';persist();renderChatHistory();renderChats()};
-window.newChat=()=>{let n=prompt('Имя нового демо-чата:');if(n&&n.trim()){chats.push({name:n.trim(),messages:[]});persist();renderChats()}};
-window.saveProfile=()=>{let n=$('profileName').value.trim()||'Paris, Madame';localStorage.setItem('pm3_name',n);localStorage.setItem('pm3_bio',$('profileBio').value);renderProfile();alert('Профиль сохранён на этом устройстве.')};
-function renderProfile(){let n=localStorage.getItem('pm3_name')||'Paris, Madame';$('profileTitle').textContent=n;$('profileName').value=n;$('profileBio').value=localStorage.getItem('pm3_bio')||'';$('profilePosts').textContent=posts.filter(p=>p.mine).length;$('profileLikes').textContent=posts.filter(p=>p.mine).reduce((s,p)=>s+p.likes,0);$('myPosts').innerHTML=posts.filter(p=>p.mine).map(p=>'<div class="listitem">'+esc(p.text)+' <button class="danger" onclick="deletePost('+p.id+')">Удалить</button></div>').join('')||'<span class="small">У вас пока нет публикаций.</span>'}
-window.deletePost=id=>{if(confirm('Удалить публикацию?')){posts=posts.filter(p=>p.id!==id);persist();renderProfile();renderFeed();renderStudio()}};
-function renderNotifications(){$('notificationList').innerHTML=notifications.map(n=>'<div class="listitem">'+esc(n)+'</div>').join('')}
-function renderStudio(){$('sPosts').textContent=posts.length;$('sLikes').textContent=posts.reduce((s,p)=>s+p.likes,0);$('sChats').textContent=chats.length;$('adminPosts').innerHTML=posts.map(p=>'<div class="listitem"><b>'+esc(p.user)+'</b><div class="small">'+esc(p.text)+'</div><button class="danger" onclick="adminDelete('+p.id+')">Удалить публикацию</button></div>').join('');$('releaseList').innerHTML=releases.map(r=>'<div class="listitem"><b>'+esc(r.v)+'</b><div class="small">'+esc(r.n)+'</div></div>').join('')}
-window.adminDelete=id=>{if(confirm('Удалить эту публикацию из локальной демо-ленты?')){posts=posts.filter(p=>p.id!==id);persist();renderStudio();renderFeed()}};
-window.addRelease=()=>{let v=$('releaseVersion').value.trim(),n=$('releaseNotes').value.trim();if(!v){alert('Укажите номер версии.');return}releases.unshift({v,n});notifications.unshift('Добавлена запись об обновлении '+v);persist();$('releaseVersion').value='';$('releaseNotes').value='';renderStudio();alert('Запись об обновлении сохранена локально. Само приложение эта кнопка не обновляет.')};
-window.saveSettings=()=>{localStorage.setItem('pm3_community',$('communityName').value);localStorage.setItem('pm3_welcome',$('welcomeText').value);alert('Настройки сохранены локально.')};
-window.exportBackup=()=>{let data={posts,chats,releases,notifications,profile:{name:localStorage.getItem('pm3_name'),bio:localStorage.getItem('pm3_bio')}};let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='paris-madame-backup.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
-window.resetDemo=()=>{if(confirm('Удалить локальные данные демо-приложения?')){Object.keys(localStorage).filter(k=>k.startsWith('pm3_')).forEach(k=>localStorage.removeItem(k));location.reload()}};
-renderFeed();renderChats();renderProfile();renderNotifications();renderStudio();
+let profile=read('profile',{name:'Madame',handle:'madame',bio:'Ваше пространство, ваш стиль.'});
+let friends=read('friends',['sophie']), posts=read('posts',[
+{id:1,user:'Sophie Martin',handle:'@sophie.martin',text:'Un dimanche à Paris. ☕️ Свет, кофе и любимый город.',media:null,likes:12,comments:[],owner:'sophie'},
+{id:2,user:'Lucas Bernard',handle:'@lucas.b',text:'Simple details. Timeless mood. #Menswear',media:null,likes:8,comments:[],owner:'lucas'},
+{id:3,user:'Camille Laurent',handle:'@camille.laurent',text:'Маленькие радости большого города. ♡',media:null,likes:21,comments:[],owner:'camille'}
+]);
+let chats=read('chats',{}), currentChat=null, mode='all';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const persist=()=>{save('people',people);save('profile',profile);save('friends',friends);save('posts',posts);save('chats',chats)};
+window.go=id=>{document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.bottom button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));if(id==='home')renderFeed();if(id==='search')renderPeople();if(id==='messages')renderChats();if(id==='profile')renderProfile();window.scrollTo(0,0)};
+window.setFeed=(m,b)=>{mode=m;document.querySelectorAll('.feedtabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderFeed()};
+function media(m){if(!m)return '';return m.type==='video'?'<video class="postmedia" controls playsinline src="'+m.data+'"></video>':'<img class="postmedia" src="'+m.data+'" alt="Фото публикации">'}
+function renderFeed(){let arr=posts.slice();if(mode==='friends')arr=arr.filter(p=>friends.includes(p.owner)||p.owner==='me');if(mode==='popular')arr.sort((a,b)=>b.likes-a.likes);
+$('feed').innerHTML=arr.map(p=>'<article class="card post"><div class="posthead"><div class="avatar">'+esc((p.user||'?')[0])+'</div><div class="grow"><b>'+esc(p.user)+'</b><div class="handle">'+esc(p.handle||'')+' · недавно</div></div><span class="pill">PARIS</span></div>'+media(p.media)+'<div class="posttext">'+esc(p.text)+'</div><div class="postactions"><button onclick="like('+p.id+')">♡ '+p.likes+'</button><button onclick="comment('+p.id+')">Комментарий ('+(p.comments||[]).length+')</button><button onclick="share('+p.id+')">Поделиться</button></div>'+(p.comments||[]).slice(-2).map(c=>'<div class="small" style="margin-top:8px">↳ '+esc(c)+'</div>').join('')+'</article>').join('')||'<div class="empty">Здесь пока тихо. Добавьте друзей или опубликуйте первый пост.</div>'}
+window.like=id=>{let p=posts.find(x=>x.id===id);if(p){p.likes++;persist();renderFeed()}};
+window.comment=id=>{let t=prompt('Ваш комментарий');if(t?.trim()){posts.find(x=>x.id===id).comments.push(t.trim());persist();renderFeed()}};
+window.share=id=>{let p=posts.find(x=>x.id===id);if(navigator.clipboard?.writeText)navigator.clipboard.writeText(p.text).then(()=>alert('Текст скопирован')).catch(()=>alert(p.text));else alert(p.text)};
+window.renderPeople=()=>{let q=($('userSearch').value||'').toLowerCase().replace(/^@/,'');let list=people.filter(p=>(p.handle+' '+p.name).toLowerCase().includes(q));$('people').innerHTML=list.map(p=>'<div class="result"><div class="avatar">'+esc(p.avatar)+'</div><div class="grow"><b>'+esc(p.name)+'</b><div class="handle">@'+esc(p.handle)+'</div><div class="small">'+esc(p.bio)+'</div></div>'+(friends.includes(p.id)?'<button onclick="openFriendChat(\''+p.id+'\')">Написать</button>':'<button class="primary" onclick="addFriend(\''+p.id+'\')">＋ Друг</button>')+'</div>').join('')||'<div class="empty">Пользователь не найден.</div>'; $('friendCount').textContent=friends.length+' друзей'};
+window.addFriend=id=>{if(!friends.includes(id))friends.push(id);persist();renderPeople();renderProfile();renderChats()};
+window.publish=async()=>{let text=$('postText').value.trim(),f=$('postFile').files[0];if(!text&&!f){alert('Добавьте текст или фото/видео.');return}let m=null;if(f){if(f.size>2*1024*1024){alert('Для демо выберите файл до 2 МБ.');return}m={type:f.type.startsWith('video')?'video':'image',data:await new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(f)})}}posts.unshift({id:Date.now(),user:profile.name,handle:'@'+profile.handle,text:text+' '+$('postTags').value,media:m,likes:0,comments:[],owner:'me'});persist();$('postText').value='';$('postTags').value='';$('postFile').value='';go('home')};
+function renderChats(){let ids=friends.map(id=>people.find(p=>p.id===id)).filter(Boolean);$('chatList').innerHTML=ids.map(p=>'<div class="chatrow"><div class="avatar">'+esc(p.avatar)+'</div><div class="grow" onclick="openFriendChat(\''+p.id+'\')"><b>'+esc(p.name)+'</b><div class="small">'+esc((chats[p.id]||[]).slice(-1)[0]?.text||'Начать переписку')+'</div></div><button onclick="openFriendChat(\''+p.id+'\')">Открыть</button></div>').join('')||'<div class="empty">Пока нет друзей. Найдите человека во вкладке «Поиск».</div>'}
+window.openFriendChat=id=>{let p=people.find(x=>x.id===id);if(!p)return;currentChat=id;$('chatPanel').classList.remove('hidden');$('chatName').textContent=p.name;$('chatAvatar').textContent=p.avatar;renderHistory();$('messageInput').focus()};
+function renderHistory(){let arr=chats[currentChat]||[];$('chatHistory').innerHTML=arr.map(m=>'<div class="bubble '+(m.from==='me'?'me':'')+'">'+esc(m.text)+'</div>').join('');$('chatHistory').scrollTop=$('chatHistory').scrollHeight}
+window.sendMessage=()=>{let t=$('messageInput').value.trim();if(!t||!currentChat)return;(chats[currentChat]??=[]).push({from:'me',text:t,at:Date.now()});$('messageInput').value='';persist();renderHistory();renderChats()};
+window.closeChat=()=>{$('chatPanel').classList.add('hidden');currentChat=null};
+window.saveProfile=()=>{let h=$('editHandle').value.trim().replace(/^@/,'').replace(/[^a-zA-Z0-9._]/g,'');if(!h){alert('Введите никнейм.');return}if(people.some(p=>p.handle.toLowerCase()===h.toLowerCase()&&p.id!=='me')){alert('Этот ник уже занят в демо-списке.');return}profile={name:$('editName').value.trim()||'Madame',handle:h,bio:$('editBio').value.trim()};persist();renderProfile();alert('Профиль сохранён на этом устройстве.')};
+function renderProfile(){$('profileDisplay').textContent=profile.name;$('handleDisplay').textContent='@'+profile.handle;$('bioDisplay').textContent=profile.bio;$('editName').value=profile.name;$('editHandle').value=profile.handle;$('editBio').value=profile.bio;$('myPostCount').textContent=posts.filter(p=>p.owner==='me').length;$('myFriendCount').textContent=friends.length;$('myFriends').innerHTML=friends.map(id=>{let p=people.find(x=>x.id===id);return p?'<div class="friend"><div class="avatar">'+esc(p.avatar)+'</div><div class="grow"><b>'+esc(p.name)+'</b><div class="handle">@'+esc(p.handle)+'</div></div><button onclick="openFriendChat(\''+id+'\');go('messages')">Чат</button></div>':''}).join('')||'<div class="small">Добавьте друзей через поиск.</div>'}
+window.savePrefs=()=>{save('prefs',{private:$('privateMode').checked,notify:$('notifyMode').checked})};
+window.exportData=()=>{let blob=new Blob([JSON.stringify({profile,friends,posts,chats},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='paris-madame-data.json';a.click();URL.revokeObjectURL(url)};
+let prefs=read('prefs',{private:false,notify:true});$('privateMode').checked=prefs.private;$('notifyMode').checked=prefs.notify;
+renderFeed();renderPeople();renderChats();renderProfile();
 })();
 </script></body></html>
